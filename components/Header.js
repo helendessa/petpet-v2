@@ -6,8 +6,10 @@ import { TbMapSearch, TbMapPinStar } from "react-icons/tb";
 import { MdInfoOutline } from "react-icons/md";
 import { ImExit } from "react-icons/im";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useSession } from 'next-auth/react';
 
 const Header = () => {
+    const {data: session} = useSession;
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {

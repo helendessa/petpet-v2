@@ -6,14 +6,17 @@ import { BsPeopleFill } from 'react-icons/bs';
 import { IoIosNotifications } from 'react-icons/io';
 import { FaExclamationTriangle, FaQuestionCircle } from 'react-icons/fa';
 import { RiCalendarEventFill } from 'react-icons/ri';
+import { useSession } from 'next-auth/react';
 
 export const Sidebar  = () => {
+  const { data: session } = useSession();
+
   return (
     <div className="hidden lg:inline-flex flex-col py-2 pl-2 max-w-xl lg:min-w-[302px]">
         <div className="flex items-center space-x-2 py-3 pl-4
         hover:bg-gray-200 rounded-l-xl cursor-pointer">
             <Image 
-                src="/image.png"
+                src={session?.user.image}
                 height={40}
                 width={40}
                 alt="Logo"
