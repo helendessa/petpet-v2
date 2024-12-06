@@ -2,6 +2,10 @@ import React from 'react'
 import Image from 'next/image';
 import { ImUsers } from 'react-icons/im';
 import SidebarItem from './SidebarItem';
+import { BsPeopleFill } from 'react-icons/bs';
+import { IoIosNotifications } from 'react-icons/io';
+import { FaExclamationTriangle, FaQuestionCircle } from 'react-icons/fa';
+import { RiCalendarEventFill } from 'react-icons/ri';
 
 export const Sidebar  = () => {
   return (
@@ -18,7 +22,12 @@ export const Sidebar  = () => {
             <p className="hidden sm:inline-flex font-medium">Helen Dessa</p>
         </div>
 
-        <SidebarItem Icon={ImUsers} value="Amigos"/>
+        <SidebarItem Icon={BsPeopleFill} value="Amigos"/>
+        <SidebarItem Icon={IoIosNotifications} value="Notificações"/>
+        <SidebarItem Icon={FaExclamationTriangle} value="Informações Importantes"/>
+        <SidebarItem Icon={RiCalendarEventFill} value="Eventos"/>
+        <SidebarItem Icon={FaQuestionCircle} value="Ajuda"/>
+
     </div>
   );
 };
