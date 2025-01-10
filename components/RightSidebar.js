@@ -18,7 +18,16 @@ function RightSidebar() {
                 </div>
             </div>
         </div>
-        <Contacts src={session?.user.image} name={session?.user.name}/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Online"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Online"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Offline"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Offline"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Offline"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Offline"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Online"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Online"/>
+        <Contacts src={session?.user.image} name={session?.user.name} status="Online"/>
+
     </div>
   )
 }
