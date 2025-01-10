@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image';
-import { ImUsers } from 'react-icons/im';
 import SidebarItem from './SidebarItem';
 import { BsPeopleFill } from 'react-icons/bs';
 import { IoIosNotifications } from 'react-icons/io';
@@ -22,7 +21,7 @@ export const Sidebar  = () => {
                 alt="Logo"
                 className="rounded-full cursor-pointer"
             />
-            <p className="hidden sm:inline-flex font-medium">Helen Dessa</p>
+            <p className="hidden sm:inline-flex font-medium">{session?.user.name}</p>
         </div>
 
         <SidebarItem Icon={BsPeopleFill} value="Amigos"/>
