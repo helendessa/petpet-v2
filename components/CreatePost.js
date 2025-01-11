@@ -6,6 +6,8 @@ import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addPost } from '@/public/src/features/postSlice';
 
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), { ssr: false });
 
@@ -17,6 +19,7 @@ const CreatePost = () => {
     const [inputValue, setInputValue] = useState('');
     const hiddenFileInput = useRef(null);
     const [imageToPost, setImageToPost] = useState(null);
+    const dispatch = useDispatch();
 
     const handleEmojiClick = (emojiObject) => {
         setInputValue((prevInputValue) => prevInputValue + emojiObject.emoji);
@@ -65,10 +68,11 @@ const CreatePost = () => {
         formData.append('pfp', session?.user.image);
 
         axios.post(PETPET_ENDPOINT, formData, {
-            headers: { Accept: 'application/json' }
+            headers: { Accept: 'application/json' },
         })
         .then((response) => {
             inputRef.current.value = "";
+            dispatch(addPost(response.data));
             removeImage();
         })
         .catch((error) => {
